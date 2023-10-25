@@ -124,7 +124,7 @@ const PasswordPage: React.FC<{ onPasswordSubmit: (password: string) => void }> =
 
     setTimeout(() => {
       setIsLoading(false);
-      if (enteredPassword === '1234') {
+      if (enteredPassword === '9768') {
         onPasswordSubmit(enteredPassword);
       } else {
         setIsIncorrect(true);

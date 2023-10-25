@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import ContentAction from "./content";
+import AudioCard from "./card";
+import database from "../database/content.json";
 
 const MainLayout = styled.main `
   text-align: center;
@@ -17,8 +18,8 @@ const Navigation = styled.nav `
 
 `
 const NavContent = styled.p `
-  text-transform: uppercase;
   font-size: 19px;
+  font-weight: bold;
 
   &::before {
     content: "●";
@@ -32,15 +33,29 @@ const NavContent = styled.p `
     margin-left: 9px;
   }
 `
+const CardContainer = styled.div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 4%;
+    margin-top: 10vh;
+    justify-content: center;
+    flex-wrap: wrap;
+`
 const MainPage = () => {
 
   return (
     <MainLayout>
       <Navigation>
-          <NavContent>just do it for yourself</NavContent>
+          <NavContent>unforgettable...</NavContent>
       </Navigation>
-      <ContentAction/>
-      <h2 className='coming_text'>Davamı gələcək...</h2>
+      <CardContainer>
+      {database.map((item, index) => (
+        <AudioCard key={index} name={item.name} audio={item.audio} />
+      ))}
+      </CardContainer>
+      <h2 className="last_audio_content">Hamısı deyil, sadəcə yadda qalanlar...</h2>
     </MainLayout>
   )
 }
